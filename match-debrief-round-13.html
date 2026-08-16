@@ -331,7 +331,7 @@ footer button:hover{color:var(--them)}
 
 <footer>
   <span id="saveMode">Your progress saves on this device.</span>
-  <br><button id="resetBtn">Reset this debrief</button>
+  <br><button id="resetBtn">Reset this match review</button>
 </footer>
 
 <script>
@@ -925,7 +925,7 @@ function render(){
   }
 
   h+=`<section class="finish" id="finish">
-    <h2>🏁 DEBRIEF COMPLETE?</h2>
+    <h2>🏁 MATCH REVIEW COMPLETE?</h2>
     <div class="stars" id="finStars">☆☆☆</div>
     <div class="tot" id="finTot">0 PTS</div>
     <div class="finbonus" id="finBonus"></div>
@@ -942,7 +942,7 @@ function render(){
       <button class="playbtn" id="shGen" style="background:var(--gold);color:#05070C">⚙ Generate my code</button>
       <button class="stepbtn" id="shCopy">📋 Copy code</button>
     </div>
-    <p>Send the code to coach so your debrief counts.</p>
+    <p>Send the code to coach so your match review counts.</p>
   </section>`;
 
   main.innerHTML=h;
@@ -1157,7 +1157,7 @@ function renderFinishState(){
   }
   const done=DATA.problems.every((p,pi)=>buildQuiz(p,pi).every((_,qi)=>state.ans[pi+"-"+qi]));
   document.getElementById("finMsg").textContent=done?
-    (pct>=0.99?"Perfect debrief. You'll spot it a mile off next time. 🧠":"Debrief done — generate your code and send it to coach."):
+    (pct>=0.99?"Perfect match review. You'll spot it a mile off next time. 🧠":"Match review done — generate your code and send it to coach."):
     "Work through both case files to fill your scorecard.";
   if(done&&pct>=0.7&&!celebrated){celebrated=true;confetti();sfxRoar();}
 }
@@ -1188,7 +1188,7 @@ function genCode(){
 
 // ---------- reset ----------
 document.getElementById("resetBtn").addEventListener("click",()=>{
-  if(!confirm("Reset your progress for this debrief?"))return;
+  if(!confirm("Reset your progress for this match review?"))return;
   state={ans:{},tasks:{},ws:{},drag:{},player:state.player,muted:muted,sub:state.sub,subAward:state.subAward};saveState();celebrated=false;render();
 });
 
@@ -1196,7 +1196,7 @@ document.getElementById("resetBtn").addEventListener("click",()=>{
 loadState();
 muted=!!state.muted;syncMute();
 if(DATA&&DATA.meta){render();}
-else{document.getElementById("main").innerHTML="<p style='padding:40px;text-align:center;font-weight:800;color:var(--muted)'>No debrief data found. Export this page from the Match Review editor.</p>";}
+else{document.getElementById("main").innerHTML="<p style='padding:40px;text-align:center;font-weight:800;color:var(--muted)'>No match review data found. Export this page from the Match Review editor.</p>";}
 /*JS-END*/
 </script>
 </body>
