@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Match Debrief · The Film Room</title>
+<title>Match Review · Round 13</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -320,8 +320,8 @@ footer button:hover{color:var(--them)}
 <header class="topbar">
   <div class="crest" id="crest">⚽</div>
   <div class="brand">
-    <div class="t" id="brandTitle">FILM ROOM</div>
-    <div class="s" id="brandSub">Match Debrief</div>
+    <div class="t" id="brandTitle">MATCH REVIEW</div>
+    <div class="s" id="brandSub">Match Review</div>
   </div>
   <span class="score" id="scoreNum">0 <i>/ 0 PTS</i></span>
   <button class="badgebtn" id="muteBtn" aria-label="Sound on or off">🔊</button>
@@ -794,14 +794,14 @@ function momentLabel(id){const m=(DATA.config.moments||[]).find(m=>m.id===id);re
 function render(){
   const M=DATA.meta;
   document.getElementById("crest").textContent=M.crest||"⚽";
-  document.getElementById("brandTitle").textContent=M.club||"FILM ROOM";
-  document.getElementById("brandSub").textContent=(M.squad?M.squad+" · ":"")+"Match Debrief";
-  document.title=(M.round||"Match Debrief")+" · The Film Room";
+  document.getElementById("brandTitle").textContent=M.club||"MATCH REVIEW";
+  document.getElementById("brandSub").textContent=(M.squad?M.squad+" · ":"")+"Match Review";
+  document.title=(M.round||"Match Review")+" · Match Review";
 
   const main=document.getElementById("main");
   let h=`<section class="hero">
-    <div class="eyebrow">🎬 The Film Room · ${esc(M.round||"This Week")}</div>
-    <h1>MATCH DEBRIEF</h1>
+    <div class="eyebrow">🎬 Match Review · ${esc(M.round||"This Week")}</div>
+    <h1>MATCH REVIEW</h1>
     <div class="scoreline">
       <span class="team">${esc(M.club||"Us")}</span><span class="num us">${esc(M.score&&M.score.us!=null?M.score.us:"–")}</span>
       <span class="vs">VS</span>
